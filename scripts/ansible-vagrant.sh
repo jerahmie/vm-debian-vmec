@@ -8,11 +8,11 @@ set -e
 set -u
 
 MY_SVN_CHECKOUT=""
-MY_GIT_CHECKOUT=""
+MY_GIT_CHECKOUT="file:///Data/workspace/vm-scripts.git"
 MY_PLAYS="${@/#/playbooks/}"  # append prefix to each argument
 MY_OPTS="-e ansible_connection=local -i vagrant,"
 
-DEPEND_COMMON="subversion python python-pycurl python-jinja2 python-markupsafe python-yaml"
+DEPEND_COMMON="git python python-pycurl python-jinja2 python-markupsafe python-yaml"
 DEPEND_DEB=$DEPEND_COMMON
 DEPEND_RHEL=$DEPEND_COMMON
 
@@ -47,9 +47,11 @@ else
     MY_CMD="./ansible-playbook $@ $MY_OPTS"
 fi
 
-svn checkout -q "$MY_SVN_CHECKOUT" "\$MY_DIR"
+#svn checkout -q "$MY_SVN_CHECKOUT" "\$MY_DIR"
+echo "Attempting to clone my git repository"
+git clone "$MY_GIT_CHECKOUT" "\$MY_DIR"
 # Copy over modules to system
-sudo cp -R "\${MY_DIR}/modules" "/usr/share/ansible"
+sudo cp -R "\${MY_DIR}/vm-debian/ansible/modules" "/usr/share/ansible"
 
 cat << SCRIPT
 ##############################################################################
@@ -60,7 +62,7 @@ cat << SCRIPT
 ##############################################################################
 SCRIPT
 
-cd "\${MY_DIR}/"
+cd "\${MY_DIR}/vm-debian/ansible/"
 export PYTHONPATH=\$(pwd)/lib
 \$MY_CMD
 
