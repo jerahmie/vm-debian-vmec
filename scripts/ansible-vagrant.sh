@@ -8,7 +8,7 @@ set -e
 set -u
 
 MY_SVN_CHECKOUT=""
-MY_GIT_CHECKOUT="file:///Data/workspace/vm-scripts.git"
+MY_GIT_CHECKOUT="file:///Data/workspace/vm-scripts"
 MY_PLAYS="${@/#/playbooks/}"  # append prefix to each argument
 MY_OPTS="-e ansible_connection=local -i vagrant,"
 
