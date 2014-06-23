@@ -41,17 +41,17 @@ MY_DIR="\$(mktemp -d --suffix=-vagrant_ansible)"
 
 if [ -z "\$@" ]; then
     # Run default plays
-    MY_CMD="./ansible-playbook $MY_PLAYS $MY_OPTS"
+    MY_CMD="./bin/ansible-playbook $MY_PLAYS $MY_OPTS"
 else
     # Run plays passed in as arguments
-    MY_CMD="./ansible-playbook $@ $MY_OPTS"
+    MY_CMD="./bin/ansible-playbook $@ $MY_OPTS"
 fi
 
 #svn checkout -q "$MY_SVN_CHECKOUT" "\$MY_DIR"
 echo "Attempting to clone my git repository"
 git clone "$MY_GIT_CHECKOUT" "\$MY_DIR"
 # Copy over modules to system
-sudo cp -R "\${MY_DIR}/vm-debian/ansible/modules" "/usr/share/ansible"
+sudo cp -R "\${MY_DIR}/vm-debian/ansible/library" "/usr/share/ansible"
 
 cat << SCRIPT
 ##############################################################################

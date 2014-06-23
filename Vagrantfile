@@ -10,7 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "file:///Data/VirtualBox_VMs/box/vm-debian-devel.box"
+  #config.vm.box = "file:///Data/VirtualBox_VMs/box/vm-debian-devel.box"
+  config.vm.box = "hashicorp/precise32"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -34,6 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
   #config.ssh.forward_agent = true
+  #config.ssh.private_key_path = "keys/vagrant"
   config.ssh.private_key_path = "~/.ssh/id_rsa"
   #config.ssh.password = "vagrant"
   # shell temp fix https://github.com/mitchellh/vagrant/issues/1673
@@ -126,5 +128,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
   # Run provisioning
+  $ansible_playbooks=["dev-vagrant.yml"]
   config.vm.provision "shell", path: "scripts/ansible-vagrant.sh", args: $ansible_playbooks
 end
