@@ -53,6 +53,7 @@ git clone "$MY_GIT_CHECKOUT" "\$MY_DIR"
 # Copy over modules to system
 sudo cp -R "\${MY_DIR}/vm-debian/ansible/library" "/usr/share/ansible"
 sudo cp "\${MY_DIR}/vm-debian/scripts/vmec_checksum.sh" "/usr/local/bin"
+sudo chmod +x /usr/local/bin/vmec_checksum.sh
 
 cat << SCRIPT
 ##############################################################################
