@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "file:///Data/VirtualBox_VMs/box/vm-debian-devel_small.box"
+  config.vm.box = "file:///Data/VirtualBox_VMs/box/vm-debian-devel.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
