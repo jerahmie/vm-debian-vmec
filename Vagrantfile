@@ -41,6 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.ssh.private_key_path = "keys/vagrant"
   #config.ssh.private_key_path = "~/.ssh/id_rsa"
   config.ssh.password = "vagrant"
+  config.ssh.forward_x11 = true
   # shell temp fix https://github.com/mitchellh/vagrant/issues/1673
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   
