@@ -55,6 +55,8 @@ git clone "$MY_GIT_CHECKOUT" "\$MY_DIR"
 sudo cp -R "\${MY_DIR}/vm-debian/ansible/library" "/usr/share/ansible"
 sudo cp "\${MY_DIR}/vm-debian/scripts/vmec_checksum.sh" "/usr/local/bin"
 sudo chmod +x /usr/local/bin/vmec_checksum.sh
+sudo cp "\${MY_DIR}/vm-debian/scripts/build_py3matplotlib.sh" "/usr/local/bin"
+sudo chmod +x /usr/local/bin/build_py3matplotlib.sh
 
 cat << SCRIPT
 ##############################################################################
