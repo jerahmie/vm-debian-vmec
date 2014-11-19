@@ -58,7 +58,6 @@ sudo chmod +x /usr/local/bin/vmec_checksum.sh
 sudo cp "\${MY_DIR}/vm-debian/scripts/build_fdfpp.sh" "/usr/local/bin"
 sudo chmod +x /usr/local/bin/build_fdfpp.sh
 
-
 cat << SCRIPT
 ##############################################################################
 ### Starting local ansible provisioning
