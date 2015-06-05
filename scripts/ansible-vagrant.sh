@@ -18,6 +18,7 @@ DEPEND_DEB=$DEPEND_COMMON
 DEPEND_RHEL=$DEPEND_COMMON
 
 echo "Install / update dependencies..."
+sed -i 's/mirror.anl.gov/http.debian.net/g' /etc/apt/sources.list
 case $(lsb_release -i -s) in
     Debian|Ubuntu)
         sudo apt-get -qq update
