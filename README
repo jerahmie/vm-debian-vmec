@@ -1,0 +1,2 @@
+Download vm-debian-devel.box:
+$ bash scripts/get_vagrant_box.sh

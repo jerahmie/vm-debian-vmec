@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # This website is only available for download within the UW campus firewall.
   # A VPN connection should be OK.
   # config.vm.box_url = "http://hsx3n.ece.wisc.edu/boxes/vm-debian-devel.box"
-  config.vm.box = "vm-debian-devel"
+  config.vm.box = "box/vm-debian-devel"
   # config.vm.box = "hashicorp/precise32"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
